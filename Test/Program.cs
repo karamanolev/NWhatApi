@@ -11,7 +11,10 @@ namespace Test
         {
             WhatClient client = new WhatClient();
             await client.Login("karamanolev", "foo");
-            var data = await client.DownloadTorrent("1507783");
+            var nots = await client.GetNotifications();
+            var group1 = await client.GetTorrentGroupInfo(nots.Results[0].GroupId);
+
+            GroupTorrentInfo groupInfo = group1.Torrents.Where(t => t.Id == nots.Results[0].TorrentId).First();
         }
 
         static void Main(string[] args)

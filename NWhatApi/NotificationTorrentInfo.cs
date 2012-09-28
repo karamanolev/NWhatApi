@@ -4,19 +4,19 @@ using System.Linq;
 
 namespace NWhatApi
 {
-    public class TorrentInfo
+    public class NotificationTorrentInfo
     {
         [JsonProperty("torrentId")]
-        public string TorrentId { get; set; }
+        public long TorrentId { get; set; }
 
         [JsonProperty("groupId")]
-        public string GroupId { get; set; }
+        public long GroupId { get; set; }
 
         [JsonProperty("groupName")]
         public string GroupName { get; set; }
 
         [JsonProperty("groupCategoryId")]
-        public string GroupCategoryId { get; set; }
+        public long GroupCategoryId { get; set; }
 
         [JsonProperty("torrentTags")]
         public string TorrentTags { get; set; }

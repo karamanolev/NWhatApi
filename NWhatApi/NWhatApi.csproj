@@ -33,8 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="GetNotificationsResponse.cs" />
-    <Compile Include="TorrentInfo.cs" />
+    <Compile Include="ArtistReference.cs" />
+    <Compile Include="GroupTorrentInfo.cs" />
+    <Compile Include="MusicInfo.cs" />
+    <Compile Include="TorrentGroupInfo.cs" />
+    <Compile Include="NotificationsInfo.cs" />
+    <Compile Include="TorrentGroupResponse.cs" />
+    <Compile Include="NotificationTorrentInfo.cs" />
     <Compile Include="WhatAuthenticationException.cs" />
     <Compile Include="WhatClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

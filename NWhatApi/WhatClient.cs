@@ -109,21 +109,32 @@ namespace NWhatApi
             }
         }
 
-        public async Task<GetNotificationsResponse> GetNotifications(int page = 1)
+        public async Task<NotificationsInfo> GetNotifications(int page = 1)
         {
-            return await this.GetJson<GetNotificationsResponse>(new Dictionary<string, string>
+            return await this.GetJson<NotificationsInfo>(new Dictionary<string, string>
             {
                 {"action", "notifications"},
                 {"page", page.ToString()}
             });
         }
 
-        public async Task<byte[]> DownloadTorrent(string torrentId)
+        public async Task<TorrentGroupResponse> GetTorrentGroupInfo(long id)
+        {
+            return await this.GetJson<TorrentGroupResponse>(new Dictionary<string, string>
+            {
+                {"action", "torrentgroup"},
+                {"id", id.ToString()}
+            });
+        }
+
+        public async Task<byte[]> DownloadTorrent(long torrentId)
         {
             HttpResponseMessage response = await this.GetHttpResponse(TorrentsUri, new Dictionary<string, string>
             {
                 {"action", "download"},
-                {"id", torrentId}
+                {"id", torrentId.ToString()},
+                {"authkey", "0cd39556f997de51f109f8fbb743ec70"},
+                {"torrent_pass", "6ukcb50xa524waqr6q3l9t743zakvgef"}
             });
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsByteArrayAsync();

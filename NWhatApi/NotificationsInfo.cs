@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 
 namespace NWhatApi
 {
-    public class GetNotificationsResponse
+    public class NotificationsInfo
     {
         [JsonProperty("currentPages")]
         public int CurrentPage { get; set; }
@@ -16,6 +16,6 @@ namespace NWhatApi
         public int New { get; set; }
 
         [JsonProperty("results")]
-        public TorrentInfo[] Results { get; set; }
+        public NotificationTorrentInfo[] Results { get; set; }
     }
 }
