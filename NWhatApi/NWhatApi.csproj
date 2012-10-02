@@ -33,13 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="ArtistReference.cs" />
-    <Compile Include="GroupTorrentInfo.cs" />
-    <Compile Include="MusicInfo.cs" />
-    <Compile Include="TorrentGroupInfo.cs" />
-    <Compile Include="NotificationsInfo.cs" />
-    <Compile Include="TorrentGroupResponse.cs" />
-    <Compile Include="NotificationTorrentInfo.cs" />
+    <Compile Include="Model\ArtistReference.cs" />
+    <Compile Include="Model\GroupTorrentInfo.cs" />
+    <Compile Include="Model\MusicInfo.cs" />
+    <Compile Include="Model\TorrentGroupInfo.cs" />
+    <Compile Include="Model\NotificationsInfo.cs" />
+    <Compile Include="Model\TorrentGroupResponse.cs" />
+    <Compile Include="Model\NotificationTorrentInfo.cs" />
     <Compile Include="WhatAuthenticationException.cs" />
     <Compile Include="WhatClient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -51,6 +51,7 @@
       <HintPath>..\Libraries\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
