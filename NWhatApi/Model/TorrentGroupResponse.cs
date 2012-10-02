@@ -14,7 +14,7 @@ namespace NWhatApi.Model
 
         public string GetTorrentFileName(GroupTorrentInfo torrentInfo)
         {
-            return this.Group.MusicInfo.JoinedArtists + " - " + this.Group.Name + " - " + this.Group.Year + " (" + torrentInfo.Media + " - " + torrentInfo.Format + " - " + torrentInfo.Encoding + ")";
+            return this.Group.MusicInfo.JoinedArtists + " - " + this.Group.Name + " - " + this.Group.Year + " (" + torrentInfo.Media + " - " + torrentInfo.Format + " - " + torrentInfo.Encoding + ").torrent";
         }
     }
 }
