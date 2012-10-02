@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace NWhatApi.Model
 {
+    /// <summary>
+    /// Information about a torrent as returned inside the notifiaction response.
+    /// </summary>
     public class NotificationTorrentInfo
     {
         [JsonProperty("torrentId")]

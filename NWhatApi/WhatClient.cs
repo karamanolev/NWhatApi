@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NWhatApi.Model;
 using Newtonsoft.Json;
+using System.Text.RegularExpressions;
 
 namespace NWhatApi
 {
@@ -137,6 +138,22 @@ namespace NWhatApi
             });
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsByteArrayAsync();
+        }
+
+        public async Task<long> GetTorrentGroupIdByTorrentId(long torrentId)
+        {
+            HttpResponseMessage response = await this.client.GetAsync("https://what.cd/torrents.php?torrentid=" + torrentId);
+            if (response.StatusCode == HttpStatusCode.Found)
+            {
+                Regex regex = new Regex("^" + Regex.Escape("torrents.php?id=") + "(?<groupId>[0-9]+)" + Regex.Escape("&"));
+                Match match = regex.Match(response.Headers.GetValues("Location").First());
+                if (!match.Success)
+                {
+                    throw new FormatException("The redirect is not in an expected format.");
+                }
+                return long.Parse(match.Groups["groupId"].Value);
+            }
+            throw new InvalidOperationException("The server didn't redirect is to the group page.");
         }
     }
 }

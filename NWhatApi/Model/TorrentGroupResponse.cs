@@ -4,6 +4,9 @@ using Newtonsoft.Json;
 
 namespace NWhatApi.Model
 {
+    /// <summary>
+    /// A wrapper for a torrent group - contains the group info and the group torrents.
+    /// </summary>
     public class TorrentGroupResponse
     {
         [JsonProperty("group")]
