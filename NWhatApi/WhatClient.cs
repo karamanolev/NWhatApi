@@ -4,9 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
 using System.Text;
+using System.Threading.Tasks;
+using NWhatApi.Model;
+using Newtonsoft.Json;
 
 namespace NWhatApi
 {
@@ -118,12 +119,12 @@ namespace NWhatApi
             });
         }
 
-        public async Task<TorrentGroupResponse> GetTorrentGroupInfo(long id)
+        public async Task<TorrentGroupResponse> GetTorrentGroupInfo(long groupId)
         {
             return await this.GetJson<TorrentGroupResponse>(new Dictionary<string, string>
             {
                 {"action", "torrentgroup"},
-                {"id", id.ToString()}
+                {"id", groupId.ToString()}
             });
         }
 
@@ -132,9 +133,7 @@ namespace NWhatApi
             HttpResponseMessage response = await this.GetHttpResponse(TorrentsUri, new Dictionary<string, string>
             {
                 {"action", "download"},
-                {"id", torrentId.ToString()},
-                {"authkey", "0cd39556f997de51f109f8fbb743ec70"},
-                {"torrent_pass", "6ukcb50xa524waqr6q3l9t743zakvgef"}
+                {"id", torrentId.ToString()}
             });
             response.EnsureSuccessStatusCode();
             return await response.Content.ReadAsByteArrayAsync();

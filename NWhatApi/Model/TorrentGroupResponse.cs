@@ -2,7 +2,7 @@
 using System.Linq;
 using Newtonsoft.Json;
 
-namespace NWhatApi
+namespace NWhatApi.Model
 {
     public class TorrentGroupResponse
     {

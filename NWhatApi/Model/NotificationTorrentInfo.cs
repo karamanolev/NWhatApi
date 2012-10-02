@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace NWhatApi
+namespace NWhatApi.Model
 {
     public class NotificationTorrentInfo
     {
