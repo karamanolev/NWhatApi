@@ -20,7 +20,18 @@ namespace NWhatApi.Model
         {
             get
             {
-                return string.Join(", ", this.Artists.Select(a => a.Name));
+                if (this.Artists.Length == 1)
+                {
+                    return this.Artists[0].Name;
+                }
+                else if (this.Artists.Length > 1)
+                {
+                    return "Various Artists";
+                }
+                else
+                {
+                    return "";
+                }
             }
         }
     }
