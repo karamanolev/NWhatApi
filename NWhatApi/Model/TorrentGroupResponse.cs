@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Linq;
 using Newtonsoft.Json;
+using System.Text;
+using System.IO;
 
 namespace NWhatApi.Model
 {
@@ -22,7 +24,17 @@ namespace NWhatApi.Model
 
         public string GetTorrentFileName(GroupTorrentInfo torrentInfo)
         {
-            return this.Group.MusicInfo.JoinedArtists + " - " + this.Group.Name + " - " + this.Group.Year + " (" + torrentInfo.Media + " - " + torrentInfo.Format + " - " + torrentInfo.Encoding + ").torrent";
+            string suggestedName = this.Group.MusicInfo.JoinedArtists + " - " + this.Group.Name + " - " + this.Group.Year + " (" + torrentInfo.Media + " - " + torrentInfo.Format + " - " + torrentInfo.Encoding + ").torrent";
+            StringBuilder finalName = new StringBuilder();
+            char[] invalidChars = Path.GetInvalidFileNameChars();
+            foreach (char c in suggestedName)
+            {
+                if (!invalidChars.Contains(c))
+                {
+                    finalName.Append(c);
+                }
+            }
+            return finalName.ToString();
         }
     }
 }

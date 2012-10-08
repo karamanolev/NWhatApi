@@ -34,6 +34,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Model\ArtistReference.cs" />
+    <Compile Include="Model\SearchQuery.cs" />
     <Compile Include="Model\GroupTorrentInfo.cs" />
     <Compile Include="Model\MusicInfo.cs" />
     <Compile Include="Model\TorrentGroupInfo.cs" />
