@@ -12,6 +12,12 @@ namespace NWhatApi.Model
         [JsonProperty("id")]
         public long Id { get; set; }
 
+        [JsonProperty("wikiBody")]
+        public string WikiBody { get; set; }
+
+        [JsonProperty("wikiImage")]
+        public string WikiImage { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 
@@ -20,6 +26,21 @@ namespace NWhatApi.Model
 
         [JsonProperty("time")]
         public string Time { get; set; }
+
+        [JsonProperty("recordLabel")]
+        public string RecordLabel { get; set; }
+
+        [JsonProperty("catalogueNumber")]
+        public string CatalogueNumber { get; set; }
+
+        [JsonProperty("releaseType")]
+        public int ReleaseType { get; set; }
+
+        [JsonProperty("categoryId")]
+        public int CategoryId { get; set; }
+
+        [JsonProperty("vanityHouse")]
+        public bool VanityHouse { get; set; }
 
         [JsonProperty("musicInfo")]
         public MusicInfo MusicInfo { get; set; }

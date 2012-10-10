@@ -15,6 +15,18 @@ namespace NWhatApi.Model
         [JsonProperty("artists")]
         public ArtistReference[] Artists { get; set; }
 
+        [JsonProperty("with")]
+        public ArtistReference[] With { get; set; }
+
+        [JsonProperty("conductor")]
+        public ArtistReference[] Conductor { get; set; }
+
+        [JsonProperty("remixedBy")]
+        public ArtistReference[] RemixedBy { get; set; }
+
+        [JsonProperty("producer")]
+        public ArtistReference[] Producer { get; set; }
+
         [JsonIgnore]
         public string JoinedArtists
         {

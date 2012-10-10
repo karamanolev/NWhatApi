@@ -11,7 +11,7 @@ namespace Test
         {
             WhatClient client = new WhatClient();
             await client.Login("karamanolev", "foo");
-            await client.GetTorrentGroupIdByTorrentId(819997);
+            var groupInfo = await client.GetTorrentGroupInfo(36268);
         }
 
         static void Main(string[] args)
