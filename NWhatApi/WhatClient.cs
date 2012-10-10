@@ -91,6 +91,10 @@ namespace NWhatApi
             HttpResponseMessage response = await this.GetHttpResponse(ApiUri, parms);
             if (response.StatusCode == HttpStatusCode.Found)
             {
+                if (response.Headers.Location.ToString().ToLower().Contains("log.php"))
+                {
+                    throw new WhatException("What redirected us to log.php. Probably this id doesn't exist anymore.");
+                }
                 throw new WhatAuthenticationException("Call login before making API calls.");
             }
             response.EnsureSuccessStatusCode();
