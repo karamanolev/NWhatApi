@@ -24,7 +24,8 @@ namespace NWhatApi.Model
 
         public string GetTorrentFileName(GroupTorrentInfo torrentInfo)
         {
-            string suggestedName = this.Group.MusicInfo.JoinedArtists + " - " + this.Group.Name + " - " + this.Group.Year + " (" + torrentInfo.Media + " - " + torrentInfo.Format + " - " + torrentInfo.Encoding + ").torrent";
+            int year = torrentInfo.RemasterYear != 0 ? torrentInfo.RemasterYear : this.Group.Year;
+            string suggestedName = this.Group.MusicInfo.JoinedArtists + " - " + this.Group.Name + " - " + year + " (" + torrentInfo.Media + " - " + torrentInfo.Format + " - " + torrentInfo.Encoding + ").torrent";
             StringBuilder finalName = new StringBuilder();
             char[] invalidChars = Path.GetInvalidFileNameChars();
             foreach (char c in suggestedName)
