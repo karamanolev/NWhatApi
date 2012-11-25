@@ -57,7 +57,8 @@ namespace NWhatApi
             FormUrlEncodedContent content = new FormUrlEncodedContent(new Dictionary<string, string>
             {
                 {"username", username},
-                {"password", password}
+                {"password", password},
+                {"keeplogged", "1"}
             });
             HttpResponseMessage response = await this.PostAsync(LoginUri, content);
             if (response.StatusCode != HttpStatusCode.Found)
