@@ -22,7 +22,7 @@ namespace NWhatApi.Model
         public string Encoding { get; set; }
 
         [JsonProperty("remastered")]
-        public string Remastered { get; set; }
+        public bool Remastered { get; set; }
 
         [JsonProperty("remasterYear")]
         public int RemasterYear { get; set; }

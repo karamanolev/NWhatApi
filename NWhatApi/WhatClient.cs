@@ -103,7 +103,11 @@ namespace NWhatApi
             {
                 using (StreamReader reader = new StreamReader(responseStream))
                 {
-                    using (JsonReader jsonReader = new JsonTextReader(reader))
+                    string json = reader.ReadToEnd();
+                    json = json.Replace("&quot;", "\\\"");
+                    json = WebUtility.HtmlDecode(json);
+
+                    using (JsonReader jsonReader = new JsonTextReader(new StringReader(json)))
                     {
                         WhatResponse<T> responseData = this.serializer.Deserialize<WhatResponse<T>>(jsonReader);
                         if (responseData.Status != "success")
